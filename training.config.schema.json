@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/NodeTrainingConfiguration",
+    "definitions": {
+        "NodeTrainingConfiguration": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "specs": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "author"
+            ],
+            "title": "NodeTrainingConfiguration"
+        }
+    }
+}

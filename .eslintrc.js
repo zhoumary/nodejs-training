@@ -3,7 +3,7 @@ module.exports = {
     plugins: [
     ],
     parserOptions: {
-        "ecmaVersion": 6
+        "ecmaVersion": 2017
     },
     extends: [
         'eslint:recommended',
@@ -16,6 +16,7 @@ module.exports = {
     rules: {
         "semi": [2], // must end with semi
         "no-extra-semi": [0],
-        "no-var": [2]
+        "no-var": [2],
+        "quotes": [2, "single", "avoid-escape"]
     }
 };

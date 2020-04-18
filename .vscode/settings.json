@@ -4,5 +4,13 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": true
-    }
+    },
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/training.config.json"
+            ],
+            "url": "./training.config.schema.json"
+        }
+    ]
 }
