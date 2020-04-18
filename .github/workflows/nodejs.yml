@@ -25,6 +25,7 @@ jobs:
         npm run test
       env:
         CI: true
+        NO_AUTHOR_CHECK: true
         
     - name: upload coverage
       uses: codecov/codecov-action@v1
