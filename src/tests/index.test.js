@@ -10,7 +10,7 @@ describe('mandatory check', () => {
         expect(fs.existsSync(path.join(__dirname, '../../training.config.json')));
     });
 
-    if (!process.env.CI) { // not in CI env
+    if (!process.env.NO_AUTHOR_CHECK) { // not check author
 
         it('should have be a valid config', () => {
             const config = require('../../training.config.json');

@@ -11,6 +11,9 @@
                 },
                 "specs": {
                     "type": "string"
+                },
+                "callback": {
+                    "type": "string"
                 }
             },
             "required": [

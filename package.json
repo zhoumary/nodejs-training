@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "npm run download && jest --detectOpenHandles",
+    "test": "npm run download && jest --colors --detectOpenHandles",
     "lint": "eslint .",
     "release": "standard-version --no-verify && git push --follow-tags origin master",
     "coverage": "npm test -- --coverage --no-cache",
@@ -50,6 +50,10 @@
     "coveragePathIgnorePatterns": [
       "node_modules/",
       "src/bin"
+    ],
+    "reporters": [
+      "default",
+      "<rootDir>/src/tests/reporter.js"
     ],
     "testEnvironment": "node",
     "testRegex": "/src/tests/.*\\.test\\.js$",
