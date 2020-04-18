@@ -16,8 +16,7 @@
         ]
     },
     "include": [
-        "src",
-        "src/bin"
+        "src"
     ],
     "exclude": [
         "commitlint.config.js"

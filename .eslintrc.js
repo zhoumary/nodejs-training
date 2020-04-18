@@ -1,7 +1,6 @@
 module.exports = {
     root: true,
-    plugins: [
-    ],
+    plugins: [],
     parserOptions: {
         "ecmaVersion": 2017
     },

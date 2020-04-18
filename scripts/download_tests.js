@@ -1,9 +1,14 @@
+
+
 const process = require('process');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 const { tempLink } = require('../src/tests/utils');
 
+/**
+ * download test specs from remote (if user defined the URI)
+ */
 (async () => {
     if (require.main == module) {
         if (fs.existsSync(path.join(__dirname, '../training.config.json'))) {
@@ -16,7 +21,7 @@ const { tempLink } = require('../src/tests/utils');
                     fs.writeFileSync(storagePath, testsSourceBytes);
                     console.log('training specs download');
                 } else {
-                    console.log('training config not define the "specs link", skipped');
+                    console.log('training config not defined in the "specs link", skipped');
                 }
             } catch (error) {
                 console.error('download remote tests case failed');
