@@ -14,8 +14,9 @@ const { tempLink } = require('../src/tests/utils');
                     const testsSourceBytes = await r.buffer();
                     const storagePath = tempLink(config.specs);
                     fs.writeFileSync(storagePath, testsSourceBytes);
+                    console.log('training specs download');
                 } else {
-                    console.log('training config not define the "specs link", ignored');
+                    console.log('training config not define the "specs link", skipped');
                 }
             } catch (error) {
                 console.error('download remote tests case failed');

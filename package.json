@@ -2,13 +2,12 @@
   "name": "nodejs-training",
   "version": "0.0.1",
   "private": true,
-  "main": "lib/index.js",
   "scripts": {
     "test": "npm run download && jest --detectOpenHandles",
     "lint": "eslint .",
     "release": "standard-version --no-verify && git push --follow-tags origin master",
     "coverage": "npm test -- --coverage --no-cache",
-    "build:spec": "webpack",
+    "build": "webpack",
     "download": "node scripts/download_tests"
   },
   "repository": {
