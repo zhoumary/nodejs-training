@@ -7,8 +7,8 @@ module.exports = {
     template: 'module.exports = (v1, v2) => {};',
     runner: async (f) => {
         for (let i = 0; i < 100; i++) {
-            const v1 = Random.float();
-            const v2 = Random.float();
+            const v1 = Random.float(-1000, 1000);
+            const v2 = Random.float(-1000, 1000);
             expect(f(v1, v2), `${v1} + ${v2} = ?`).toEqual(v1 + v2);
         }
     }
