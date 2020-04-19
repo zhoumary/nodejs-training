@@ -32,7 +32,7 @@ const executeSpecs = specsSource => {
                 it(`spec: ${spec.title}`, async () => {
                     const p = path.join(__dirname, '../cases', group.title, spec.title, 'index.js');
                     if (!fs.existsSync(p)) {
-                        console.info(`not found test case ${spec.title}, create it`);
+                        console.info(`not found test case for ${spec.title}, create it`);
                         createEmptyTestCase(group.title, spec.title, spec.description, spec.template);
                     }
                     await spec.runner(require(p));

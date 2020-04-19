@@ -1,7 +1,5 @@
-const path = require('path');
-
 module.exports = {
-    title: path.basename(__dirname),
+    title: 'basics',
     specs: [
         require('./sum-1')
     ]

@@ -1,8 +1,7 @@
-const path = require('path');
 const { Random } = require('mockjs');
 
 module.exports = {
-    title: path.basename(__filename, '.js'),
+    title: 'sum-1',
     description: 'input 2 number, return the sum of 2 variable',
     template: 'module.exports = (v1, v2) => {};',
     runner: async (f) => {
