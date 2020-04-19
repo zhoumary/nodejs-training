@@ -7,19 +7,51 @@
             "additionalProperties": false,
             "properties": {
                 "author": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "author name"
                 },
                 "specs": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "spec url for downloading/uploading"
                 },
                 "callback": {
+                    "type": "string",
+                    "description": "test result callback"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "user role",
+                    "enum": [
+                        "trainee",
+                        "trainer"
+                    ]
+                },
+                "credential": {
+                    "$ref": "#/definitions/Credential"
+                }
+            },
+            "required": [
+                "author",
+                "role"
+            ],
+            "title": "NodeTrainingConfiguration"
+        },
+        "Credential": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "password": {
                     "type": "string"
                 }
             },
             "required": [
-                "author"
+                "password",
+                "username"
             ],
-            "title": "NodeTrainingConfiguration"
+            "title": "Credential"
         }
     }
 }

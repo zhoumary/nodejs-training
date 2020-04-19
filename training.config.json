@@ -1,5 +1,10 @@
 {
     "author": "",
-    "specs": "",
-    "callback": ""
+    "specs": "https://couchdb.eu-central.fornever.org/training_spec/training001",
+    "callback": "https://couchdb.eu-central.fornever.org/training_result",
+    "role": "trainee",
+    "credential": {
+        "username": "training",
+        "password": "training"
+    }
 }

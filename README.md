@@ -10,15 +10,19 @@
 ### For Trainee
 
 * maintain the `specs` in the `training.config.json` file
+* `npm run download` to get the latest tests cases
 * `npm run test` & generate the test cases in the `src/cases` directory for training
-* adjust the code & make all test cases passed
-* commit & push to github
+* adjust the generated cases & make all test cases passed
+* commit & push to github, then github will automatic check your cases
 
 ### For Trainer
 
+* maintain the `role` in the `training.config.json` file
+* maintain the `specs` in the `training.config.json` file, replace the `training001` with a unique id like `corp-a-b-training-001`
 * maintain the `specs` definitions in `src/tests` like `src/tests/basics/sum-1.js`
-* `npm run build` & publish the `dist/specs.bundle.js` to public `object storage service` service (S3 or AliCloud OSS)
-* find the specs link & tell it to trainees
+* self test
+* `npm run upload` to publish
+* share the `specs` link to your trainees
 
 ## Components
 

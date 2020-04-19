@@ -49,14 +49,21 @@ if (fs.existsSync(path.join(__dirname, '../../training.config.json'))) {
     const remoteTempPath = tempLink(c.specs);
     const localBundlePath = path.join(__dirname, '../../dist/specs.bundle.js');
 
-    if (c.specs) { // if remote specs setup
-        const specsSource = fs.readFileSync(remoteTempPath, { encoding: 'UTF-8' });
-        executeSpecs(specsSource);
-    } else if (fs.existsSync(localBundlePath)) { // if local bundle file generated
-        const specsSource = fs.readFileSync(localBundlePath, { encoding: 'UTF-8' });
-        executeSpecs(specsSource);
-    } else { // fallback
-        executeSpecs(require('./specs'));
+    if (c.role == 'trainee') { // if remote specs setup
+        try {
+            const specsSource = fs.readFileSync(remoteTempPath, { encoding: 'UTF-8' });
+            executeSpecs(specsSource);
+        } catch (err) {
+            console.error(err.message);
+            console.error('please check your config.specs & credential');
+        }
+    } else { // trainer
+        if (fs.existsSync(localBundlePath)) { // if local bundle file generated
+            const specsSource = fs.readFileSync(localBundlePath, { encoding: 'UTF-8' });
+            executeSpecs(specsSource);
+        } else { // fallback
+            executeSpecs(require('./specs'));
+        }
     }
 
 

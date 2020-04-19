@@ -1,7 +1,5 @@
-
-
+const got = require('got');
 const process = require('process');
-const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 const { tempLink } = require('../src/tests/utils');
@@ -13,15 +11,19 @@ const { tempLink } = require('../src/tests/utils');
     if (require.main == module) {
         if (fs.existsSync(path.join(__dirname, '../training.config.json'))) {
             const config = require('../training.config.json');
+            const client = got.extend({
+                username: config.credential.username,
+                password: config.credential.password,
+            });
             try {
-                if (config.specs) {
-                    const r = await fetch(config.specs);
-                    const testsSourceBytes = await r.buffer();
+                if (config.role == 'trainee') {
+                    const r = await client(`${config.specs}/specs.js`, { responseType: 'buffer' });
+                    const testsSourceBytes = r.body;
                     const storagePath = tempLink(config.specs);
                     fs.writeFileSync(storagePath, testsSourceBytes);
-                    console.log('training specs download');
+                    console.log('training specs downloaded');
                 } else {
-                    console.log('training config not defined in the "specs link", skipped');
+                    console.log('training role is not "trainee", skipped');
                 }
             } catch (error) {
                 console.error('download remote tests case failed');
@@ -30,6 +32,7 @@ const { tempLink } = require('../src/tests/utils');
             process.exit(0);
         } else {
             console.log('not found training config');
+            process.exit(1);
         }
     }
 })();
