@@ -1,7 +1,6 @@
 const mkdirp = require('mkdirp');
 const path = require('path');
 const fs = require('fs');
-const os = require('os');
 const crypto = require('crypto');
 
 const md5 = (s) => {
