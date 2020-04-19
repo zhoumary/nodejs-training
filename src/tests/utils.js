@@ -15,7 +15,7 @@ const md5 = (s) => {
  * @param {string} s specs remote link
  */
 const tempLink = (s) => {
-    return path.join(os.tmpdir(), `${md5(s)}.js`);
+    return path.join(__dirname, '../../dist', `${md5(s)}.js`);
 };
 
 const createEmptyTestCase = (group, title, description, template = 'module.exports = function () { };') => {
