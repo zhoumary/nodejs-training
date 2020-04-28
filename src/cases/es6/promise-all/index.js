@@ -7,23 +7,14 @@ cb是回调函数, 请将结果(数组)(按照顺序)作为第一个参数传入
 
 */
 
-
-module.exports = (f1, arr, cb) => {
-    let promiseArr = [];
-    if (arr.length > 0) {
-        for (let index = 0; index < arr.length; index++) {
-            promiseArr.push(f1(arr[index]));
-        }
-        Promise
-            .all(promiseArr)
-            .then(value => {
-                if (value > 0) {
-                    for (let index = 0; index < value.length; index++) {
-                        cb(value[index]);
-                    }
-                }
-            })
-            .catch(console.error);
-    }
-
+/**
+ * @param {()=>Promise<string>} f1
+ * @param {string[]} arr
+ * @param {function(string[])} cb
+ */
+module.exports = (f1, arr = [], cb) => {
+    Promise
+        .all(arr.map(itm => f1(itm)))  // await all promise finished
+        .then(results => cb(results)); // 
 };
+

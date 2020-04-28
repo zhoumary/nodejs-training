@@ -1,16 +1,15 @@
 {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    },
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "/training.config.json"
-            ],
-            "url": "./training.config.schema.json"
-        }
-    ]
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.fontSize": 18,
+  "json.schemas": [
+    {
+      "fileMatch": ["/training.config.json"],
+      "url": "./training.config.schema.json"
+    }
+  ]
 }
